@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gradient-to-br from-blue-50 via-white to-purple-50 text-gray-800">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infix Converter</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/output.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center sm:px-48 px-0">
+    <div class="w-full p-8 bg-white rounded-2xl shadow-2xl border border-blue-200 min-h-screen">
+      <h1 class="text-3xl font-bold text-blue-600 mb-2 text-center">
+        Infix → Prefix & Postfix Converter
+      </h1>
+      <p class="text-sm text-gray-500 mb-6 text-center">
+        Masukkan ekspresi matematika untuk dikonversi
+      </p>
+      <div class="flex gap-3 mb-6">
+        <input type="text" id="inputField" placeholder="Contoh: (3+2)*(4-1)"
+          class="flex-1 px-4 py-3 border border-blue-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none w-full"/>
+        <button id="btn" class="px-5 py-3 bg-blue-600 text-white font-medium rounded-xl shadow hover:bg-blue-500 transition duration-200">
+          Convert
+        </button>
+      </div>
+
+      <div id="result" class="space-y-4">
+        <div
+          class="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200 flex justify-between items-center"
+        >
+          <span class="font-semibold text-blue-700">Prefix:</span>
+          <code
+            id="prefixResult"
+            class="text-gray-800 break-words font-mono"
+          ></code>
+        </div>
+        <div
+          class="p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-blue-200 flex justify-between items-center"
+        >
+          <span class="font-semibold text-blue-700">Postfix:</span>
+          <code
+            id="postfixResult"
+            class="text-gray-800 break-words font-mono"
+          ></code>
+        </div>
+        <div class="text-blue-700 hidden" id="stepsResult">
+          <h2 class="px-4 py-2 font-bold my-4">
+            Langkah menyelesaikan operasi pada dengan prefix
+          </h2>
+          <div id="stepsTable" class="w-full">
+            <div class="grid grid-cols-3 font-semibold bg-blue-100 text-blue-700">
+              <div class="px-4 py-2">Token</div>
+              <div class="px-4 py-2">Aksi</div>
+              <div class="px-4 py-2">Stack</div>
+            </div>
+            <div id="stepsTableBody" class="divide-y divide-gray-200"></div>
+          </div>          
+          <h2 class="px-4 py-2 font-bold my-4">
+            Langkah menyelesaikan operasi pada dengan postfix
+          </h2>
+          <div id="stepsPostfix" class="w-full">
+            <div class="grid grid-cols-3 font-semibold bg-blue-100 text-blue-700">
+              <div class="px-4 py-2">Token</div>
+              <div class="px-4 py-2">Aksi</div>
+              <div class="px-4 py-2">Stack</div>
+            </div>
+            <div id="stepsPostfixBody" class="divide-y divide-gray-200"></div>
+          </div>
+          <div id="hasil" class="px-4 py-2">
+            
+          </div>          
+          <div class="flex justify-end">
+            <button id="clear" class="bg-blue-100 rounded-lg p-4">
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="javascript/to_prefix.js"></script>
+    <script src="javascript/to_postfix.js"></script>
+    <script src="javascript/script.js"></script>
+  </body>
+</html>
